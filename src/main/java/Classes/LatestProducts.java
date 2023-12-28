@@ -34,7 +34,7 @@ public class LatestProducts {
                     int quantity = resultSet.getInt("quantity");
                     String category = resultSet.getString("category");
 
-                    System.out.println("fuck");
+
                     System.out.println(id);
 
 //                     Create a Product object and add it to the list
