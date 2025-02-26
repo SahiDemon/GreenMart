@@ -5,21 +5,17 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Dbconn {
-
-
-    private Connection connection;  // Declare the Connection as a member variable
+    private Connection connection;
 
     public Connection getConnection() {
         return connection;
     }
 
-
-
-
     public void openConnection() throws ClassNotFoundException, SQLException {
-        String url = "jdbc:postgresql://db.hdxkttfpttzxrkwndehc.supabase.co:5432/postgres";
-        String username = "postgres";
-        String password = "Sahiya@448866";
+        String url = "jdbc:postgresql://aws-0-us-west-1.pooler.supabase.com:5432/postgres?sslmode=require";
+        String username = "postgres.tgeqywutejnsmawlarju";  // Full username from Supabase
+        String password = "Sahiya@448866"; // Update password if it contains @
+
         Class.forName("org.postgresql.Driver");
         System.out.println("Database class logged");
 
@@ -37,6 +33,4 @@ public class Dbconn {
             }
         }
     }
-
-
 }

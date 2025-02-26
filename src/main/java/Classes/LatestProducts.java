@@ -17,7 +17,6 @@ public class LatestProducts {
         try {
             dbconn.openConnection();
 
-
             // Execute a query
             String sqlQuery = "SELECT * FROM products";
             try (PreparedStatement preparedStatement = dbconn.getConnection().prepareStatement(sqlQuery);
@@ -25,7 +24,6 @@ public class LatestProducts {
 
                 // Process the results
                 while (resultSet.next()) {
-
                     int id = resultSet.getInt("id");
                     String name = resultSet.getString("name");
                     String description = resultSet.getString("description");
@@ -35,9 +33,9 @@ public class LatestProducts {
                     String category = resultSet.getString("category");
 
 
-                    System.out.println(id);
+                    System.out.println(name + " loaded as a product");
 
-//                     Create a Product object and add it to the list
+                    // Create a Product object and add it to the list
                     Product product = new Product(id, name, description, price, image, quantity,category);
                     products.add(product);
                 }
@@ -46,7 +44,7 @@ public class LatestProducts {
             throw new RuntimeException(e);
         } finally {
             // Close the database connection
-            dbconn.closeConnection();
+//            dbconn.closeConnection();
         }
 
         return products;
